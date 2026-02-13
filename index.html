@@ -120,7 +120,6 @@ button:hover {
 </div>
 
 <script>
-/* Floating Cinnamoroll characters */
 const cinnamorolls = [
     "cinnamoroll1.png",
     "cinnamoroll2.png",
@@ -129,15 +128,18 @@ const cinnamorolls = [
     "cinnamoroll5.png"
 ];
 
-for (let i = 0; i < 15; i++) {
-    let img = document.createElement("img");
-    img.src = cinnamorolls[Math.floor(Math.random() * cinnamorolls.length)];
-    img.className = "floating-img";
-    img.style.top = Math.random() * 90 + "vh";
-    img.style.left = Math.random() * 90 + "vw";
-    img.style.width = (60 + Math.random()*40) + "px";
-    document.body.appendChild(img);
-}
+// Wait until the page fully loads before adding floating images
+window.addEventListener('load', () => {
+    for (let i = 0; i < 15; i++) {
+        let img = document.createElement("img");
+        img.src = cinnamorolls[Math.floor(Math.random() * cinnamorolls.length)];
+        img.className = "floating-img";
+        img.style.top = Math.random() * 90 + "vh";
+        img.style.left = Math.random() * 90 + "vw";
+        img.style.width = (60 + Math.random()*40) + "px";
+        document.body.appendChild(img);
+    }
+});
 
 /* Envelope open */
 function openEnvelope() {
